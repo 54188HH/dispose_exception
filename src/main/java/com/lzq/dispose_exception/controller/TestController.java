@@ -65,8 +65,15 @@ public class TestController {
     @GetMapping("/setOneValue")
     public void setOneValue(Integer id){
         String keyModel = "shop";
-        //score值加1
+        //score值加1score值加1
         Double aDouble = redisTemplate.opsForZSet().incrementScore(keyModel, id, 1);
+        System.out.println(aDouble);
+    }
+    @GetMapping("/delOneValue")
+    public void delOneValue(Integer id){
+        String keyModel = "shop";
+        //score值加1score值减1
+        Double aDouble = redisTemplate.opsForZSet().incrementScore(keyModel, id, -1);
         System.out.println(aDouble);
     }
 }
